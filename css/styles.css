@@ -1,0 +1,274 @@
+/* Custom Animations and Styles */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Background Gradient Animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Header Scroll Effect */
+#header.scrolled {
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(147, 51, 234, 0.1);
+}
+
+/* Marquee Animations */
+.marquee-column {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.marquee-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: marquee-up 30s linear infinite;
+}
+
+.marquee-column-reverse {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.marquee-content-reverse {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: marquee-down 30s linear infinite;
+}
+
+@keyframes marquee-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes marquee-down {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Duplicate content for seamless loop */
+.marquee-content::after,
+.marquee-content-reverse::after {
+    content: '';
+    display: block;
+    height: 1.5rem;
+}
+
+.testimonial-card {
+    margin-bottom: 1.5rem;
+}
+
+/* Pause animation on hover */
+.marquee-column:hover .marquee-content,
+.marquee-column-reverse:hover .marquee-content-reverse {
+    animation-play-state: paused;
+}
+
+/* Gradient Border Animation */
+@keyframes border-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(147, 51, 234, 0.6);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0A15;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #9333EA, #3B82F6);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #A855F7, #60A5FA);
+}
+
+/* Particle Effect Container */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(147, 51, 234, 0.8), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-float 10s infinite ease-in-out;
+}
+
+@keyframes particle-float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, -500px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Glass Morphism Effect */
+.glass {
+    background: rgba(26, 26, 46, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(147, 51, 234, 0.8);
+    }
+}
+
+/* Button Hover Effects */
+button:hover,
+a.btn:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Transition */
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* Loading Animation */
+.loader {
+    border: 4px solid rgba(147, 51, 234, 0.2);
+    border-top: 4px solid #9333EA;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Text Gradient Animation */
+@keyframes text-shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.text-shimmer {
+    background: linear-gradient(90deg, #9333EA, #3B82F6, #9333EA);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-shimmer 3s linear infinite;
+}
+
+/* Card Hover Glow */
+.card-glow:hover {
+    box-shadow: 0 20px 60px rgba(147, 51, 234, 0.3);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .marquee-content,
+    .marquee-content-reverse {
+        animation-duration: 20s;
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
