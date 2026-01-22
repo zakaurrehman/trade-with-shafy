@@ -156,11 +156,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const marqueeColumns = document.querySelectorAll('.marquee-content, .marquee-content-reverse');
         marqueeColumns.forEach(column => {
             const content = column.innerHTML;
-            column.innerHTML += content; // Duplicate content
+            // Duplicate content 2 times for smoother animation
+            column.innerHTML += content;
+            column.innerHTML += content;
         });
     }
 
-    duplicateMarqueeContent();
+    // Run after DOM is fully loaded
+    setTimeout(duplicateMarqueeContent, 100);
 
     // Add loading indicator for iframe
     const iframe = document.querySelector('iframe');

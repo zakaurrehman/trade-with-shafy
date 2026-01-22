@@ -49,60 +49,59 @@ html {
     box-shadow: 0 4px 30px rgba(147, 51, 234, 0.1);
 }
 
-/* Marquee Animations */
+/* Marquee Animations - Fixed for Better Performance */
 .marquee-column {
     overflow: hidden;
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .marquee-content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    animation: marquee-up 30s linear infinite;
+    animation: marquee-up 40s linear infinite;
+    will-change: transform;
 }
 
 .marquee-column-reverse {
     overflow: hidden;
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .marquee-content-reverse {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    animation: marquee-down 30s linear infinite;
+    animation: marquee-down 40s linear infinite;
+    will-change: transform;
 }
 
 @keyframes marquee-up {
     0% {
-        transform: translateY(0);
+        transform: translateY(0%);
     }
     100% {
-        transform: translateY(-100%);
+        transform: translateY(-50%);
     }
 }
 
 @keyframes marquee-down {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-50%);
     }
     100% {
-        transform: translateY(0);
+        transform: translateY(0%);
     }
-}
-
-/* Duplicate content for seamless loop */
-.marquee-content::after,
-.marquee-content-reverse::after {
-    content: '';
-    display: block;
-    height: 1.5rem;
 }
 
 .testimonial-card {
+    flex-shrink: 0;
     margin-bottom: 1.5rem;
 }
 
